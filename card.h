@@ -42,13 +42,13 @@ class Card
     bool sameSuitAs(const Card& c) const;  // true if suit same as c
     int  getRank()                 const;  // return rank, 1..13
     string suitString(Suit s)      const;  // return "s", "h",...
-    
+
     string rankString(int r)       const;  // return "A", "2", ..."Q"  
     
     
     bool operator == (const Card& rhs) const;
     bool operator != (const Card& rhs) const;
-    
+
 
     
   private:
@@ -59,7 +59,7 @@ class Card
     
 };
 
-// ostream& operator << (ostream& out, const Card& c);
+ostream& operator << (ostream& out, const Card& c);
 
 
 

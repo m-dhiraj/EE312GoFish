@@ -5,7 +5,7 @@
 using namespace std;
 
     Card::Card(){
-        myRank=0;
+        myRank=1;
         mySuit=spades;
     }
 
