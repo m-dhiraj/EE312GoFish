@@ -10,7 +10,7 @@
 using namespace std;
 int checkGameStatus(Player p1, Player p2, Deck d){
     cout<<" * ";
-    if(d.size()<=1)//&&(p1.getBookSize()+p2.getBookSize()>=20))
+    if(d.size()<0&&(p1.getBookSize()+p2.getBookSize()==26))
         return 1;
     return 0;
 }
@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
             }
             else{
                 file<<p2.getName()<<" says - Go Fish!"<<endl;
-                if(d.size()>0){
+                if(d.size()>=0){
                 c1=d.dealCard();
                 p1.addCard(c1);
                 file<<p1.getName()<<" draws a "<<c1.toString()<<endl;
@@ -96,7 +96,7 @@ int main(int argc, char *argv[])
             }
             else{
                 file<<p1.getName()<<" says - Go Fish!"<<endl;
-                if(d.size()>0){
+                if(d.size()>=0){
                 c1=d.dealCard();
                 p2.addCard(c1);
                 file<<p2.getName()<<" draws a "<<c1.toString()<<endl;
@@ -123,6 +123,7 @@ int main(int argc, char *argv[])
         file<<p1.getName()<<" WINS!"<<endl;
         if(p2.getBookSize()>p2.getBookSize())
         file<<p2.getName()<<" WINS!"<<endl;
+        cout<<p1.getName()<<"'s hand :"<<p1.getHandSize()<<endl;
     }
     file.close();
     return 0;
