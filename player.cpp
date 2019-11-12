@@ -41,9 +41,15 @@ using namespace std;
     //uses some strategy to choose one card from the player's
     //hand so they can say "Do you have a 4?"
     Card Player::chooseCardFromHand() const{
+        
         srand((unsigned)time(0));
-        int r=rand()%myHand.size();
-        return myHand[r];
+        int siz= myHand.size();
+        if(siz==0){
+            siz++;
+        }
+        int r=rand()%siz;
+        
+            return myHand[r];
         
     }
     
@@ -64,7 +70,7 @@ using namespace std;
             if(myHand[i].getRank()==c.getRank()){
              Card c=myHand[i];
              myHand.erase(myHand.begin()+i);
-             return myHand[i];
+             return c;
             }
         }
         
@@ -92,7 +98,7 @@ using namespace std;
         return myHand.size();
     }
     int Player::getBookSize() const{
-        return myBook.size();
+        return myBook.size()/2;
     }
        
     //OPTIONAL
